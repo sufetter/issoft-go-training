@@ -52,10 +52,6 @@ func checkNumberType(n int) (string, bool) {
 }
 
 func main() {
-	//Данный алгоритм менялся много раз и я не уверен,
-	//что на данный момент от работает лучшим образом,
-	//но текущая сложность O(sqrt(n))
-
 	testCases := [...]int{
 		5,
 		-3,
@@ -63,6 +59,7 @@ func main() {
 		10,
 		-1,
 	}
+
 	s := time.Now()
 	for _, tc := range testCases {
 		numType, flag := checkNumberType(tc)
