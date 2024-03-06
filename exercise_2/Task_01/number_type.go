@@ -4,7 +4,7 @@ import "fmt"
 
 func checkNumberType(n int) (string, bool) {
 	if n <= 1 {
-		return "invalid", false
+		return "", false
 	}
 
 	count := 0
@@ -35,9 +35,16 @@ func checkNumberType(n int) (string, bool) {
 }
 
 func main() {
-	fmt.Println("Input number:")
-	var number int
-	fmt.Scanf("%d", &number)
-	classification, isValid := checkNumberType(number)
-	fmt.Printf("Classification: %s, Flag: %v\n", classification, isValid)
+	testCases := [...]int{
+		5,
+		-3,
+		2,
+		10,
+		-1,
+	}
+
+	for _, tc := range &testCases {
+		numType, flag := checkNumberType(tc)
+		fmt.Printf("Result: %v, %v\n", numType, flag)
+	}
 }

@@ -7,36 +7,35 @@ func sequence(nums ...int) []int {
 	case 0:
 		return []int{}
 	case 1:
-		n := nums[0]
-		if n >= 0 {
-			return generateSequence(0, n+1)
-		} else {
-			return generateSequence(-n, 1)
-		}
+		return generateSequence(0, nums[0])
 	case 2:
-		a, b := nums[0], nums[1]
-		if a <= b {
-			return generateSequence(a, b+1)
-		} else {
-			return generateSequence(b, a+1)
-		}
+		return generateSequence(nums[0], nums[1])
 	default:
 		return nums
 	}
 }
 
 func generateSequence(start, end int) []int {
-	result := make([]int, end-start)
-	for i := 0; i < len(result); i++ {
-		result[i] = start + i
+	if start > end {
+		start, end = end, start
 	}
-	return result
+	seq := make([]int, 0, end-start+1)
+	for ; start <= end; start++ {
+		seq = append(seq, start)
+	}
+	return seq
 }
 
 func main() {
-	fmt.Println(sequence(5))
-	fmt.Println(sequence(-3))
-	fmt.Println(sequence(2, 6))
-	fmt.Println(sequence(10, 20, 30, 40))
-	fmt.Println(sequence())
+	testCases := [...][]int{
+		{5},
+		{-3},
+		{2, 6},
+		{10, 20, 30, 40},
+		{},
+	}
+
+	for _, tc := range &testCases {
+		fmt.Printf("Result: %v\n", sequence(tc...))
+	}
 }

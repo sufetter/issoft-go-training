@@ -23,11 +23,12 @@ func main() {
 		33: "yellow",
 		44: "orange",
 		15: "purple",
-		99: "black",
+		92: "black",
 	}
 
 	result := group(inputMap)
 
+	fmt.Println("Result:")
 	for key, value := range result {
 		fmt.Printf("%d: %v\n", key, value)
 	}
