@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func sequence(nums ...int) []int {
 	switch len(nums) {
@@ -34,8 +36,7 @@ func main() {
 		{10, 20, 30, 40},
 		{},
 	}
-
-	for _, tc := range &testCases {
+	for _, tc := range testCases {
 		fmt.Printf("Result: %v\n", sequence(tc...))
 	}
 }

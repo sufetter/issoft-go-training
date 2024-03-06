@@ -43,7 +43,7 @@ func main() {
 		-1,
 	}
 
-	for _, tc := range &testCases {
+	for _, tc := range testCases {
 		numType, flag := checkNumberType(tc)
 		fmt.Printf("Result: %v, %v\n", numType, flag)
 	}
