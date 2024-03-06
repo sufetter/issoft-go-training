@@ -17,13 +17,13 @@ func group(inputMap map[byte]string) map[byte][]string {
 
 func main() {
 	inputMap := map[byte]string{
-		11: "red",
-		51: "green",
-		22: "blue",
-		33: "yellow",
-		44: "orange",
-		15: "purple",
-		92: "black",
+		11: "BSTU",
+		51: "Light saber",
+		22: "Jerry",
+		33: "Gigachad",
+		44: "Sonic",
+		15: "Donald Trump",
+		92: "Tom",
 	}
 
 	result := group(inputMap)
