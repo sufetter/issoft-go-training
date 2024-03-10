@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"time"
 )
 
 func checkNumberType(n int) (string, bool) {
@@ -38,10 +37,9 @@ func main() {
 		30,
 		63018038201,
 	}
-	s := time.Now()
+
 	for _, tc := range testCases {
 		numType, flag := checkNumberType(tc)
 		fmt.Printf("Result: %v, %v\n", numType, flag)
 	}
-	fmt.Printf("Time elapsed: %v\n", time.Since(s))
 }
