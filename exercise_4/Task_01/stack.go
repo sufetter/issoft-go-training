@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-type Stack[T any] struct {
+type stack[T any] struct {
 	item *item[T]
 }
 
@@ -24,10 +24,10 @@ func NewStack[T any]() Stacker[T] {
 	// Если использовать такой конструктор, то
 	// у нас стек никогда не будет nil
 
-	return &Stack[T]{}
+	return &stack[T]{}
 }
 
-func (s *Stack[T]) Push(data any) {
+func (s *stack[T]) Push(data any) {
 	//Тут у параметра тип any для корректного сравнения с nil
 
 	if s == nil || data == nil {
@@ -36,7 +36,7 @@ func (s *Stack[T]) Push(data any) {
 	s.item = &item[T]{data.(T), s.item}
 }
 
-func (s *Stack[T]) Pop() (data T, err error) {
+func (s *stack[T]) Pop() (data T, err error) {
 	if s.IsEmpty() {
 		return data, errors.New("stack is empty")
 	}
@@ -45,7 +45,7 @@ func (s *Stack[T]) Pop() (data T, err error) {
 	return data, nil
 }
 
-func (s *Stack[T]) IsEmpty() bool {
+func (s *stack[T]) IsEmpty() bool {
 	if s == nil || s.item == nil {
 		return true
 	} else {
