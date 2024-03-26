@@ -20,15 +20,15 @@ func main() {
 
 	percentageOfSuccess := float64(totalPoints) / float64(maxPoints*numTasks) * 100
 	switch {
-	case percentageOfSuccess >= 0 && percentageOfSuccess <= 64:
+	case percentageOfSuccess < 65:
 		fmt.Println("F")
-	case percentageOfSuccess >= 65 && percentageOfSuccess <= 69:
+	case percentageOfSuccess < 70:
 		fmt.Println("D")
-	case percentageOfSuccess >= 70 && percentageOfSuccess <= 79:
+	case percentageOfSuccess < 80:
 		fmt.Println("C")
-	case percentageOfSuccess >= 80 && percentageOfSuccess <= 89:
+	case percentageOfSuccess < 90:
 		fmt.Println("B")
-	case percentageOfSuccess >= 90 && percentageOfSuccess <= 100:
+	default:
 		fmt.Println("A")
 	}
 }
