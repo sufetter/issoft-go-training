@@ -44,7 +44,7 @@ func (sm *sparseMatrix[T]) Get(row, col int) (T, error) {
 	if value, ok := sm.data[[2]int{row, col}]; ok {
 		return value, nil
 	}
-	return *new(T), errors.New("element not found")
+	return *new(T), nil
 }
 
 func (sm *sparseMatrix[T]) IsEmpty() bool {

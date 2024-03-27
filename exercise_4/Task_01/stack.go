@@ -38,7 +38,7 @@ func (s *stack[T]) Push(data any) {
 
 func (s *stack[T]) Pop() (data T, err error) {
 	if s.IsEmpty() {
-		return data, errors.New("stack is empty")
+		return *new(T), errors.New("stack is empty")
 	}
 	data = s.item.Data
 	s.item = s.item.next
