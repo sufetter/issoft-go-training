@@ -68,6 +68,10 @@ func whereAsync[T any](slice []T, checker func(T) bool) []T {
 }
 
 func measureTime[T any](f func([]T, func(T) bool) []T, slice []T, checker func(T) bool) {
+	if f == nil || checker == nil || slice == nil {
+		fmt.Println("Check parameters")
+		return
+	}
 	start := time.Now()
 	f(slice, checker)
 	fmt.Printf("Function took %v\n", time.Since(start))

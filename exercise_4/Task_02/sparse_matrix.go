@@ -45,9 +45,17 @@ func (sm *sparseMatrix[T]) Get(row, col int) (T, error) {
 		return value, nil
 	}
 	return *new(T), nil
+
+	//return *new(T), errors.New("value not set")
+	//Не знаю лучше возвращать при отсутствии элемента nil
+	//или возвращать ошибку, ведь если у нас есть настоящий элемент
+	//со значением 0, то пользователь может не отличить это от отсутствия
 }
 
 func (sm *sparseMatrix[T]) IsEmpty() bool {
+	if sm == nil {
+		return true
+	}
 	return len(sm.data) == 0
 }
 
@@ -63,5 +71,4 @@ func main() {
 	fmt.Println(sm.Get(0, 0))
 	fmt.Println(sm.Get(1, 2))
 	fmt.Println(sm.Get(0, 199))
-
 }
