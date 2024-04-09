@@ -38,9 +38,8 @@ func whereAsync[T any](slice []T, checker func(T) bool) []T {
 	}
 
 	ch := make(chan []T, 8)
-	done := make(chan bool, 8)
 	for i := 0; i < 8; i++ {
-		go func(elements []T, check func(T) bool, ch chan<- []T, done chan<- bool) {
+		go func(elements []T, check func(T) bool, ch chan<- []T) {
 			filtered := make([]T, 0, len(elements))
 			for _, element := range elements {
 				if check(element) {
@@ -48,20 +47,12 @@ func whereAsync[T any](slice []T, checker func(T) bool) []T {
 				}
 			}
 			ch <- filtered
-			done <- true
-		}(slice[i*length/8:min((i+1)*length/8, length)], checker, ch, done)
+		}(slice[i*length/8:min((i+1)*length/8, length)], checker, ch)
 	}
 
-	go func() {
-		for i := 0; i < 8; i++ {
-			<-done
-		}
-		close(ch)
-	}()
-
 	sorted := make([]T, 0, length)
-	for filtered := range ch {
-		sorted = append(sorted, filtered...)
+	for i := 0; i < 8; i++ {
+		sorted = append(sorted, <-ch...)
 	}
 
 	return sorted
