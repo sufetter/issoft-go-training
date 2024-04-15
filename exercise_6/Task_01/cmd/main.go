@@ -2,9 +2,7 @@ package main
 
 import (
 	"flag"
-	"fmt"
 	"log"
-	"time"
 	"wordfreq/internal/wordcounter"
 )
 
@@ -13,7 +11,8 @@ import (
 // выражения для проверки
 
 func main() {
-	s := time.Now()
+	// ./main -f text.txt -t 200
+
 	var (
 		filePath string
 		topWords int
@@ -38,5 +37,4 @@ func main() {
 	for _, word := range words {
 		log.Println(word)
 	}
-	fmt.Println(time.Since(s))
 }

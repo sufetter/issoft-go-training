@@ -8,6 +8,8 @@ import (
 )
 
 func main() {
+	// ./main -task="new task 123" --list -complete=4
+
 	var (
 		list     bool
 		complete int
@@ -26,6 +28,14 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	if task != "" {
+		err = tasker.AddTask(task)
+		if err != nil {
+			log.Fatal(err)
+		}
+	}
+
 	if list {
 		err = tasker.ListTasks()
 		if err != nil {
@@ -38,13 +48,6 @@ func main() {
 			log.Fatal("invalid task number")
 		}
 		err = tasker.CompleteTask(complete)
-		if err != nil {
-			log.Fatal(err)
-		}
-	}
-
-	if task != "" {
-		err = tasker.AddTask(task)
 		if err != nil {
 			log.Fatal(err)
 		}
