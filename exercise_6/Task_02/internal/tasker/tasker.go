@@ -1,31 +1,82 @@
 package tasker
 
-import "time"
+import (
+	"fmt"
+	"io"
+	"log"
+	"os"
+	"todo/pkg/parser"
+)
 
 type Task struct {
-	createdAt   time.Time
-	Description string
+	Description string `json:"description"`
+	Completed   bool   `json:"completed"`
 }
 
-type Tasks struct {
-	tasks []Task
+func ListTasks() error {
+	var tasks []Task
+	if err := parser.ReadJSON(&tasks, "tasks.json"); err != nil {
+		if err == io.EOF {
+			log.Println("No tasks found")
+			return nil
+		}
+		return err
+	}
+
+	fmt.Println("Tasks:")
+	for i, task := range tasks {
+		fmt.Printf("%d. %s (completed: %t)\n", i+1, task.Description, task.Completed)
+	}
+	return nil
 }
 
-func (t *Task) String() string {
-	return t.Description
+func CompleteTask(num int) error {
+	var tasks []Task
+	if err := parser.ReadJSON(&tasks, "tasks.json"); err != nil {
+		if err == io.EOF {
+			log.Println("No tasks found")
+			return nil
+		}
+		return err
+	}
+
+	if num < 1 || num > len(tasks) {
+		return fmt.Errorf("invalid task number")
+	}
+	if tasks[num-1].Completed == true {
+		fmt.Printf("task is already completed: %+v\n", tasks[num-1])
+		return nil
+	}
+	tasks[num-1].Completed = true
+	fmt.Printf("Task %d marked as completed\n", num)
+
+	if err := parser.WriteJSON(tasks, "tasks.json"); err != nil {
+		return err
+	}
+
+	return nil
 }
 
-func (t *Tasks) Add(description string) {
-	t.tasks = append(t.tasks, Task{
-		createdAt:   time.Now(),
+func AddTask(description string) error {
+	var tasks []Task
+	if err := parser.ReadJSON(&tasks, "tasks.json"); err != nil && err != io.EOF {
+		if os.IsNotExist(err) {
+			log.Print("file doesn't exist, creating it...\n")
+		} else {
+			return err
+		}
+	}
+
+	newTask := Task{
 		Description: description,
-	})
-}
+		Completed:   false,
+	}
+	tasks = append(tasks, newTask)
+	fmt.Printf("Task \"%s\" added\n", description)
 
-func (t *Tasks) Remove(position int) {
-	t.tasks = append(t.tasks[:position], t.tasks[position+1:]...)
-}
+	if err := parser.WriteJSON(tasks, "tasks.json"); err != nil {
+		return err
+	}
 
-func (t *Tasks) List() *[]Task {
-	return &t.tasks
+	return nil
 }

@@ -1,0 +1,13 @@
+# Report for {{.Date}}
+
+## Total Revenue: {{printf "%.2f" .TotalRevenue}}
+
+## Highest Revenue Product: {{.HighestRevenueProduct}} ({{printf "%.2f" .HighestRevenue}})
+
+## Products
+{{ $index := 1 }}
+{{range $product, $data := .Products}}
+{{$index}}. {{$product}} = {{printf "%.2f" $data}}
+{{ $index = Add $index 1 }}
+{{end}}
+

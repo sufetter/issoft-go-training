@@ -18,7 +18,6 @@ Tqdad Xslsgyxsgd: 45
 Iqbidtabw Spdabw: 44
 Itkmbqnpd Qdrzxbtps: 44
 Ittd Lzwbnps: 43
-Lrnywj Nzpmnt: 43
 Tnydqj Iudtsgnfm: 43
 Dgdt Qsesqbgxpj: 41
 Fwkjxkysc Jdashnbf: 41
@@ -63,7 +62,6 @@ Iqbidtabw Nnkldnqs: 35
 Itawbj Gdajps: 35
 Ittd Qbwlbjfmnp: 35
 Qbwlbj Lbgjdyps: 35
-Qbwlbj Oxnufmjp: 35
 Qbwlbj Qmbqbusg: 35
 Ezqnd Rnrspmsgnfm: 34
 Gbtd Jdxmrdpsgd: 34
@@ -106,7 +104,6 @@ Ndpxnr Fmdrbyx: 31
 Oqld Fskqsgd: 31
 Qbwlbj Nswldfmbg: 31
 Qbwlbj Psqxfmdp: 31
-Tnpysw Rwscnrzp: 31
 Tqdanrnw Fskqsg: 31
 Lntd Mcnrsgd: 30
 Lrnywj Oxyduzp: 30
@@ -123,8 +120,8 @@ Lrnywj Jstadw: 29
 Mzlbt Bqzxmdtpsg: 29
 Oqld Ndygnjfmzp: 29
 Pdgbq Rnybtpsg: 29
-Rdyndtd Gdkdw (Gbxyfmntxpdjd): 29
 Tbwd Dqjbtpsgd: 29
+Tnpysw Rwscnrzp: 29
 Abasw Qjxzt: 28
 Iqbibj Kmbpmqsg: 28
 Iqbibj Zgbwzls: 28
@@ -157,6 +154,7 @@ Iqbidtabw Qmdgbq: 26
 Iqbidtabw Qswspd: 26
 Itawbn Yzwbgnfm: 26
 Ldwnd Fnxbq: 26
+Lrnywj Nzpmnt: 26
 Oqbl Gsudybtys: 26
 Tdanr Zzesgnfm: 26
 Tnydqj Fqndzks: 26
@@ -190,6 +188,7 @@ Ndwnd Iqbidtawsgd: 24
 Oqbl Jnfm: 24
 Oqld Hdzrnp: 24
 Qbwlbj Fskqsgnfm: 24
+Qbwlbj Oxnufmjp: 24
 Qbwlbj Pdtdxjzp: 24
 Tqdanxqdg Qmdgbq: 24
 Dgdt Tswsejsg: 23
