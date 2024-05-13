@@ -11,7 +11,7 @@ import (
 // выражения для проверки
 
 func main() {
-	// ./main -f text.txt -t 200
+	// go run ./cmd/main.go -f text.txt -t 200 (по аналогии и другие задания)
 
 	var (
 		filePath string

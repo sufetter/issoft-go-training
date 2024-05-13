@@ -1,0 +1,35 @@
+{{define "scripts"}}{{end}}
+{{define "tasks-styles"}}
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+{{end}}
+{{define "tasks-body"}}
+<table>
+    <thead>
+    <tr>
+        <th>Description</th>
+        <th>Completed</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{ range . }}
+    <tr>
+        <td>{{ .Description }}</td>
+        <td>{{ if .Completed }} Yes {{ else }} No {{ end }}</td>
+    </tr>
+    {{ end }}
+    </tbody>
+</table>
+{{end}}
